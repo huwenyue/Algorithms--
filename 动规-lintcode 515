@@ -34,8 +34,7 @@ public:
 };
 
 
-//如果在循环里初始化 f[i][j] = INT_MAX; 
-//那么 不能用 min(f[i-1][k] + costs[i-1][j], f[i][j]);
+
 class Solution {
 public:
     /**

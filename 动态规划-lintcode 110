@@ -1,0 +1,71 @@
+https://www.lintcode.com/problem/minimum-path-sum/description
+// 110 最小路径和
+
+
+//O(nm)的空间复杂度
+class Solution {
+public:
+    /**
+     * @param grid: a list of lists of integers
+     * @return: An integer, minimizes the sum of all numbers along its path
+     */
+    int minPathSum(vector<vector<int>> &grid) {
+        // write your code here
+        int n = grid.size(), m = grid[0].size(); 
+        if(grid.empty() || n==0 || m==0)
+            return 0;
+            
+        int f[n][m];
+        f[0][0] = grid[0][0];
+        for(int i=0; i<n; i++){
+            for(int j=0; j<m; j++){
+                if(i==0 && j-1>=0)
+                    f[i][j] = f[i][j-1] + grid[i][j];
+                if(j==0 && i-1>=0)
+                    f[i][j] = f[i-1][j] + grid[i][j];
+                if(i>0 && j>0)
+                    f[i][j] = min(f[i-1][j], f[i][j-1]) + grid[i][j];
+            }
+        }
+        return f[n-1][m-1];
+    }
+};
+
+//滚动数组实现O(n)的空间复杂度
+class Solution {
+public:
+    /**
+     * @param grid: a list of lists of integers
+     * @return: An integer, minimizes the sum of all numbers along its path
+     */
+    int minPathSum(vector<vector<int>> &grid) {
+        // write your code here
+        int n = grid.size(), m = grid[0].size(); 
+        if(grid.empty() || n==0 || m==0)
+            return 0;
+            
+        int f[2][m];
+        int old = 1, now = 0;  //old为前一行i-1； new为当前行i
+        int t1, t2;
+        for(int i=0; i<n; i++){
+            old = now;   //old is row i-1
+            now = 1-now;   //now is row i
+            
+            for(int j=0; j<m; j++){
+                
+                if(i==0 && j==0){
+                    f[now][j] = grid[i][j];
+                    continue;
+                }
+                
+                f[now][j] = grid[i][j];   
+                t2 = j>0 ? f[now][j-1] : INT_MAX;
+                
+                t1 = i>0 ? f[old][j] : INT_MAX ;
+                
+                f[now][j] += min(t1, t2);
+            }
+        }
+        return f[now][m-1];
+    }
+};

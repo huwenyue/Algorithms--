@@ -1,0 +1,69 @@
+https://www.lintcode.com/problem/paint-house/description
+//房屋染色
+
+class Solution {
+public:
+    /**
+     * @param costs: n x 3 cost matrix
+     * @return: An integer, the minimum cost to paint all houses
+     */
+    int minCost(vector<vector<int>> &costs) {
+        // write your code here
+        int n = costs.size();   //房子个数
+        if(n==0)
+            return 0;
+            
+        int f[n+1][3];
+        memset(f, 0x3F, sizeof(f));
+        f[0][1] = f[0][0] = f[0][2] = 0;  //前0栋房子，不包含房子
+        
+        for(int i=1; i<=n; ++i){ //初始化i为前1栋房子，包含一个房子索引为0
+            for(int j=0; j<3; ++j){
+                //最后一栋房子i-1的颜色为j
+                //f[i][j] = INT_MAX;
+                for(int k=0; k<3; ++k){//i-2栋房子的颜色为k
+                   //第i-1栋房子不能和i-2栋房子颜色相同
+                    if(j!=k)    
+                        f[i][j] = min(f[i-1][k] + costs[i-1][j], f[i][j]);
+                }
+            }  
+        }
+        
+        return min(f[n][0], min(f[n][1], f[n][2]));
+    }
+};
+
+
+//如果在循环里初始化 f[i][j] = INT_MAX; 
+//那么 不能用 min(f[i-1][k] + costs[i-1][j], f[i][j]);
+class Solution {
+public:
+    /**
+     * @param costs: n x 3 cost matrix
+     * @return: An integer, the minimum cost to paint all houses
+     */
+    int minCost(vector<vector<int>> &costs) {
+        // write your code here
+        int n = costs.size();   //房子个数
+        if(n==0)
+            return 0;
+            
+        int f[n+1][3];
+        //memset(f, 0x3F, sizeof(f));
+        f[0][1] = f[0][0] = f[0][2] = 0;  //前0栋房子，不包含房子
+        
+        for(int i=1; i<=n; ++i){ //初始化i为前1栋房子，包含一个房子索引为0
+            for(int j=0; j<3; ++j){
+                //最后一栋房子i-1的颜色为j
+                f[i][j] = INT_MAX;
+                for(int k=0; k<3; ++k){//i-2栋房子的颜色为k
+                   //第i-1栋房子不能和i-2栋房子颜色相同
+                    if(j!=k && f[i-1][k] + costs[i-1][j] < f[i][j])    
+                        f[i][j] = f[i-1][k] + costs[i-1][j];
+                }
+            }  
+        }
+        
+        return min(f[n][0], min(f[n][1], f[n][2]));
+    }
+};

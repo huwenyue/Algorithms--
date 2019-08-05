@@ -1,0 +1,43 @@
+https://www.lintcode.com/problem/longest-continuous-increasing-subsequence/my-submissions
+// 397. Longest Continuous Increasing Subsequence
+
+
+class Solution {
+public:
+    /**
+     * @param A: An array of Integer
+     * @return: an integer
+     */
+     int result = 0;
+     void calc(vector<int>& A, int n){
+         int f[n];
+         for(int i=0; i<n; ++i){
+            f[i] = 1;
+            if(i>0 && A[i-1]<A[i]){
+                f[i] = f[i-1] + 1;
+            }
+            if(f[i] > result)
+                result = f[i];
+         }
+     }
+     
+    int longestIncreasingContinuousSubsequence(vector<int> &A) {
+        // write your code here
+        int n = A.size();
+        if(n==0)
+            return 0;
+        
+        calc(A, n);
+        
+        //inverse A
+        int i=0, j= n-1, t;
+        while(i<j){
+            swap(A[i], A[j]);
+            i++;
+            j--;
+        }
+        
+        calc(A,n);
+        return result;
+    }
+};

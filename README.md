@@ -16,6 +16,9 @@
 - [515. 房屋染色](https://www.lintcode.com/problem/paint-house/description) 
 - [516. 房屋染色 II](https://www.lintcode.com/problem/paint-house-ii/description) 
 - [392. 打劫房屋](https://www.lintcode.com/problem/house-robber/description) 
+- [392. 打劫房屋 II](https://www.lintcode.com/problem/house-robber-ii/description) 
+- [392. leetcode打劫房屋 II](https://leetcode.com/problems/house-robber-ii/)
+
 
 ## 划分型动态规划
 - lintcode

@@ -18,6 +18,8 @@
 - [392. 打劫房屋](https://www.lintcode.com/problem/house-robber/description) 
 - [392. 打劫房屋 II](https://www.lintcode.com/problem/house-robber-ii/description) 
 - [392. leetcode打劫房屋 II](https://leetcode.com/problems/house-robber-ii/)
+- [149. 买卖股票的最佳时机](https://www.lintcode.com/problem/best-time-to-buy-and-sell-stock/description)
+- [150. 买卖股票的最佳时机 II](https://www.lintcode.com/problem/best-time-to-buy-and-sell-stock-ii/description)
 
 
 ## 划分型动态规划

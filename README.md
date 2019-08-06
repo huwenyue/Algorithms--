@@ -10,3 +10,7 @@
 ## 区间型动态规划
 - lintcode
 - [397. 最长上升连续子序列](https://www.lintcode.com/problem/longest-continuous-increasing-subsequence/my-submissions) 
+
+## 序列+位操作型动态规划
+- lintcode
+- [664. 数1](https://www.lintcode.com/problem/counting-bits/description) 

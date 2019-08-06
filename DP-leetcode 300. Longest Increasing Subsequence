@@ -1,0 +1,27 @@
+//300. Longest Increasing Subsequence
+
+// O(n^2)
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        if(nums.empty())
+            return 0;
+        int n = nums.size();
+        int f[n], res = 0;
+        
+        for(int j=0; j<n; j++){
+            // case 1
+            f[j] = 1;
+            
+            //case 2
+            for(int i=0; i<j; i++){
+                if(nums[i]<nums[j] && f[i]+1 > f[j])
+                    f[j] = f[i] + 1;
+                
+            }
+            res = max(res, f[j]);
+        }
+        
+        return res;
+    }
+};

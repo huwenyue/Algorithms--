@@ -11,6 +11,14 @@
 - lintcode
 - [397. 最长上升连续子序列](https://www.lintcode.com/problem/longest-continuous-increasing-subsequence/my-submissions) 
 
+## 序列型动态规划
+- lintcode
+- [515. 房屋染色](https://www.lintcode.com/problem/paint-house/description) 
+
+## 划分型动态规划
+- lintcode
+- [512. 解码方法](https://www.lintcode.com/problem/decode-ways/description) 
+
 ## 序列+位操作型动态规划
 - lintcode
 - [664. 数1](https://www.lintcode.com/problem/counting-bits/description) 

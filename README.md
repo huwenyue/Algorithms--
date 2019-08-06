@@ -14,6 +14,7 @@
 ## 序列型动态规划
 - lintcode
 - [515. 房屋染色](https://www.lintcode.com/problem/paint-house/description) 
+- [516. 房屋染色 II](https://www.lintcode.com/problem/paint-house-ii/description) 
 
 ## 划分型动态规划
 - lintcode

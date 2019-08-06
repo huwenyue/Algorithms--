@@ -1,0 +1,60 @@
+https://www.lintcode.com/problem/paint-house-ii/description
+516. 房屋染色 II
+
+
+class Solution {
+public:
+    /**
+     * @param costs: n x k cost matrix
+     * @return: an integer, the minimum cost to paint all houses
+     */
+    int minCostII(vector<vector<int>> &costs) {
+        // write your code here
+        
+        if(costs.empty() || costs[0].empty())
+            return 0;
+        
+        int n  = costs.size();  //第n个房屋
+        int k = costs[0].size();   //第k个颜色
+        int f[n+1][k];    //前n+1个房屋，使用了第k个颜色
+        int min1, min2;   //最小值和次小值
+        int j1, j2;       //最小值的索引和次小值的索引
+        
+        memset(f, 0, sizeof(f));    //初始化
+        //f[0][j] = 0;   前0个房子，对应没有房子
+        
+        for(int i=1; i<=n; ++i){
+            min1 = min2 = INT_MAX;
+            
+            //算出第i-2个房子颜色从0-k中最小的花费min1和次小的花费min2
+            for(int j=0; j<k; ++j){
+                if(f[i-1][j] < min1){
+                    min2 = min1;
+                    j2 = j1;     //最小值放到次小值中 
+                    min1 = f[i-1][j];
+                    j1 = j;
+                }
+                else{
+                    if(f[i-1][j]<min2){
+                        min2 = f[i-1][j];
+                        j2 = j;
+                    }
+                }
+            }
+            
+            for(int j=0; j<k; ++j){
+                if(j!=j1)
+                    f[i][j] = f[i-1][j1] + costs[i-1][j];
+                
+                else  //j == j1
+                    f[i][j] = f[i-1][j2] + costs[i-1][j];
+            }
+        }
+        
+        int res = INT_MAX;
+        for(int j=0; j<k; j++)
+            res = min(res, f[n][j]);
+            
+        return res;
+    }
+};

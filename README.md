@@ -52,3 +52,10 @@
 ## 博弈型动态规划
 - lintcode
 - [394. 硬币排成线](https://www.lintcode.com/problem/coins-in-a-line/description) 
+
+
+## 背包型动态规划
+***要把总承重放入状态！  
+
+- lintcode
+- [92. 背包问题](https://www.lintcode.com/problem/backpack/description) 

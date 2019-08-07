@@ -1,0 +1,46 @@
+[132. Palindrome Partitioning II]
+(https://leetcode.com/problems/palindrome-partitioning-ii/submissions/)
+
+class Solution {
+public:
+    int minCut(string s) {
+        int n = s.size();
+        if(n==0)
+            return 0;
+        int i,j;
+        bool isPalin[n][n];
+        fill(isPalin[0], isPalin[0]+n*n, false);   //初始化
+        
+        // palindrome
+        for(int t = 0; t<n; t++){
+            //odd length
+            i = j = t;
+            while(i>=0 && j<n && s[i] == s[j]){
+                isPalin[i][j] = true;
+                i--;
+                j++;
+            }
+            
+            //even length
+            i = t;
+            j = t+1;
+            while(i>=0 && j<n && s[i]==s[j]){
+                isPalin[i][j] = true;
+                i--;
+                j++;
+            }
+        }
+          
+        int f[n+1];    //前n+1个对应第n个
+        f[0] = 0;   //空字符串，回文串个数为0
+        for(int i=1; i<=n; i++){
+            f[i] = INT_MAX;
+            for(j = 0; j<i; ++j){
+                if(isPalin[j][i-1])
+                    f[i] = min(f[j] + 1, f[i]); 
+            }
+        }
+        
+        return f[n]-1;   //划分次数 = 回文串个数-1
+    }
+};

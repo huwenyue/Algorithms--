@@ -1,0 +1,18 @@
+279. Perfect Squares
+https://leetcode.com/problems/perfect-squares/
+
+class Solution {
+public:
+    int numSquares(int n) {
+        int f[n+1];   //需要计算n有多少个最小平方数的和
+        f[0] = 0;    //初始
+        for(int i=1; i<=n; ++i){
+            f[i] = INT_MAX;
+            for(int j=1; j*j<=i; ++j){
+                if(f[i-j*j]+1 < f[i])
+                    f[i] = f[i-j*j] + 1;
+            }
+        }
+        return f[n];
+    }
+};

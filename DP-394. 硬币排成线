@@ -1,0 +1,24 @@
+https://www.lintcode.com/problem/coins-in-a-line/description
+//394. 硬币排成线
+
+class Solution {
+public:
+    /**
+     * @param n: An integer
+     * @return: A boolean which equals to true if the first player will win
+     */
+    bool firstWillWin(int n) {
+        // write your code here
+        if(n==0) return false;
+        if(n<=2) return true;
+        
+        bool f[n+1];
+        f[0] = false;   //面对0个石子，先手必败
+        f[1] = f[2] = true;  //面对1或2个石子，先手必胜
+        
+        for(int i=3; i<=n; ++i){
+            f[i] = (f[i-1]==false) || (f[i-2]==false);
+        }
+        return f[n];
+    }
+};

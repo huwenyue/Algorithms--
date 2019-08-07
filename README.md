@@ -8,8 +8,8 @@
 - [55. 跳跃游戏](https://leetcode.com/problems/jump-game/)
 
 ## 区间型动态规划
-- lintcode
-- [397. 最长上升连续子序列](https://www.lintcode.com/problem/longest-continuous-increasing-subsequence/my-submissions) 
+
+
 
 ## 序列型动态规划
 - lintcode
@@ -21,17 +21,19 @@
 - [149. 买卖股票的最佳时机](https://www.lintcode.com/problem/best-time-to-buy-and-sell-stock/description)
 - [150. 买卖股票的最佳时机 II](https://www.lintcode.com/problem/best-time-to-buy-and-sell-stock-ii/description)
 - [151. 买卖股票的最佳时机 III](https://www.lintcode.com/problem/best-time-to-buy-and-sell-stock-iii/description)
-- leetcode
-- [300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/submissions/)
 
 
-### 最长序列型动态规划
+### 最长序列型动态规划（坐标型）
 **要求找出符合条件的最长子序列** 
 
 **方法：记录以每个元素i结尾的最长子序列的长度；计算时，在i之前枚举子序列上一个元素是哪个。**  
 
 - leetcode
 - [354. Russian Doll Envelopes](https://leetcode.com/problems/russian-doll-envelopes/) 
+- [300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/submissions/)
+- lintcode
+- [397. 最长上升连续子序列](https://www.lintcode.com/problem/longest-continuous-increasing-subsequence/my-submissions)
+
 
 
 ## 划分型动态规划

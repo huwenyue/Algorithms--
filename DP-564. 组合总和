@@ -1,0 +1,68 @@
+f[i]: 多少种方式拼出重量i
+
+https://www.lintcode.com/problem/combination-sum-iv/description
+//564. 组合总和 IV
+class Solution {
+public:
+    /**
+     * @param nums: an integer array and all positive numbers, no duplicates
+     * @param target: An integer
+     * @return: An integer
+     */
+    int backPackVI(vector<int> &nums, int target) {
+        // write your code here
+        if(nums.empty())
+            return 0;
+        int n = nums.size();
+        int f[target+1];   //f[i]: 有多少种组合能拼出重量i
+        //初始化
+        f[0] = 1;    //有一种组合能拼出重量0
+        
+        for(int i=1; i<=target; ++i){
+            f[i] = 0;
+            for(int j=0; j<n; ++j){
+                if(i >= nums[j])
+                    f[i] += f[i-nums[j]];
+            }
+        }
+        return f[target];
+    }
+};
+
+
+//输出一条能拼出重量target的路径
+定义pai[i]来输出最后一个进背包的物品: 如果方式数>=1, 最后一个数字是pai[i]
+如：Target是最后一个数字，pai[target]得到能拼出target的最后一个数字，用pai[target-pai[target]]得到拼出target-pai[target]的最后一个数字,以此类推。
+
+
+class Solution {
+public:
+    /**
+     * @param nums: an integer array and all positive numbers, no duplicates
+     * @param target: An integer
+     * @return: An integer
+     */
+    int backPackVI(vector<int> &nums, int target) {
+        // write your code here
+        if(nums.empty())
+            return 0;
+        int n = nums.size();
+        int f[target+1];   //f[i]: 有多少种组合能拼出重量i
+        int pai[target+1];    //pai[i]: if f[i]>=1, 最后一个数字可以是pai[i]
+        //初始化
+        f[0] = 1;    //有一种组合能拼出重量0
+        
+        for(int i=1; i<=target; ++i){
+            f[i] = 0;
+            for(int j=0; j<n; ++j){
+                if(i >= nums[j]){
+                    f[i] += f[i-nums[j]];
+                    if(f[i-nums[j]>0])
+                        pai[i] = nums[j];
+                }
+                    
+            }
+        }
+        return f[target];
+    }
+};

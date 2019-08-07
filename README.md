@@ -42,6 +42,7 @@
 - leetcode
 - [279. Perfect Squares](https://leetcode.com/problems/perfect-squares/)
 - [132. Palindrome Partitioning II](https://leetcode.com/problems/palindrome-partitioning-ii/submissions/)
+- [437. 书籍复印](https://www.lintcode.com/problem/copy-books/description)
 
 ## 序列+位操作型动态规划
 - lintcode

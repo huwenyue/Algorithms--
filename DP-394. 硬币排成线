@@ -22,3 +22,17 @@ public:
         return f[n];
     }
 };
+
+
+//解法二：找规律，取硬币的轮数为3的倍数时，必败，即n%3==0；反之，必胜。
+class Solution {
+public:
+    /**
+     * @param n: An integer
+     * @return: A boolean which equals to true if the first player will win
+     */
+    bool firstWillWin(int n) {
+        // write your code here
+        return n%3 != 0;
+    }
+};

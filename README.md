@@ -48,3 +48,7 @@
 - lintcode
 - [664. 数1](https://www.lintcode.com/problem/counting-bits/description) 
  
+
+## 博弈型动态规划
+- lintcode
+- [394. 硬币排成线](https://www.lintcode.com/problem/coins-in-a-line/description) 

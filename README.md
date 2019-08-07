@@ -39,6 +39,9 @@
 ## 划分型动态规划
 - lintcode
 - [512. 解码方法](https://www.lintcode.com/problem/decode-ways/description) 
+- leetcode
+- [512. 解码方法](https://leetcode.com/problems/perfect-squares/) 
+
 
 ## 序列+位操作型动态规划
 - lintcode

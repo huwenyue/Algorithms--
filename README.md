@@ -59,3 +59,4 @@
 
 - lintcode
 - [92. 背包问题](https://www.lintcode.com/problem/backpack/description) 
+- [564. 组合总和 IV](https://www.lintcode.com/problem/combination-sum-iv/description) 

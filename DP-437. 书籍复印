@@ -1,0 +1,43 @@
+https://www.lintcode.com/problem/copy-books/description
+//437. 书籍复印
+
+class Solution {
+public:
+    /**
+     * @param pages: an array of integers
+     * @param k: An integer
+     * @return: an integer
+     */
+    int copyBooks(vector<int> &pages, int k) {
+        // write your code here
+        int n = pages.size();
+        if(n==0) return 0;
+        if(k>n)
+            k = n;
+            
+        int f[k+1][n+1];
+        //初始化
+        f[0][0] = 0;    //0个人抄0本书，时间为0
+        for(int i=1; i<=n; ++i)
+            f[0][i] = INT_MAX;   //0个人i本书 不可能抄完
+        
+        int sum = 0; 
+        for(int K=1; K<=k; ++K){
+            f[K][0] = 0;     // K个人0本书，时间为0
+            for(int i=1; i<=n; ++i){
+                f[K][i] = INT_MAX;
+                sum = 0;
+                //i个人最少需要多少时间抄写完前j本书
+                for(int j=i; j>=0; --j){
+                    f[K][i] = min(f[K][i], max(f[K-1][j], sum));
+                    if(j>0)
+                        sum += pages[j-1];
+                }
+                
+            }
+        }
+            
+        return f[k][n];
+        
+    }
+};

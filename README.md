@@ -28,7 +28,10 @@
 ### 最长序列型动态规划
 **要求找出符合条件的最长子序列** 
 
-**方法：记录以每个元素i结尾的最长子序列的长度；计算时，在i之前枚举子序列上一个元素是哪个。**
+**方法：记录以每个元素i结尾的最长子序列的长度；计算时，在i之前枚举子序列上一个元素是哪个。**  
+
+- leetcode
+- [354. Russian Doll Envelopes](https://leetcode.com/problems/russian-doll-envelopes/) 
 
 
 ## 划分型动态规划

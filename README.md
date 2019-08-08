@@ -12,7 +12,8 @@
 - 按照长度j-i从小到大的顺序去算
 - leetcode
 - [516. Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/submissions/)
-
+- Coins in a line III
+- [312. Burst Balloons](https://leetcode.com/problems/burst-balloons/)
 
 ## 序列型动态规划
 - 前i个... 最小/方式数/可行性

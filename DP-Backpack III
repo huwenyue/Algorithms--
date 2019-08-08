@@ -1,0 +1,47 @@
+//Backpack III
+//N种物品，重量分别为正整数：A[0], A[1],...,A[N-1], 价值分别为正整数V[0],V[1],...V[N-1]
+//每个物品都有无穷多个，一个背包最大承重是正整数M，求最多能带走多大价值的物品
+//不能用贪心来做，即每次选择价值最高的且重量最小的物品（性价比最高）。
+f[i][w]: 前i种物品拼出重量w时的最大总价值(-1表示不能拼出w)
+用k来枚举放几个, k>=0
+f[i][w] = max(f[i-1][w], f[i-1][w-k*A[i-1]] + k*V[i-1]);
+（优化） => f[i][w] = max(f[i-1][w], f[i][w-A[i-1]] + V[i-1]);
+  
+  //注意它必背包2的区别是：遍历总重量m是从前往后，而2是从后往前。
+  class Solution {
+public:
+    /**
+     * @param m: An integer m denotes the size of a backpack
+     * @param A: Given n items with size A[i]
+     * @param V: Given n items with value V[i]
+     * @return: The maximum value
+     */
+    int backPackII(int m, vector<int> &A, vector<int> &V) {
+        // write your code here
+        int n = A.size();
+        if(n==0) return 0;
+        int f[m+1];   //一定要把总重量放到背包里面  
+        //初始化：0件物品不能拼出大于0的重量
+        fill(f, f+m+1, -1);
+        f[0] = 0;   //0个物品拼出重量0，最大总价值为0
+        int res = 0;
+        
+        for(int i=1; i<=n; ++i){
+            for(int j=0; j<=m; ++j){
+                //update f[j] : f[i][j]
+                //original f[j] : f[i-1][j]
+                if(j>=A[i-1] && f[j-A[i-1]]!=-1){
+                    f[j] = max(f[j], f[j-A[i-1]]+V[i-1]);
+                }
+                
+            }
+            
+        }
+        
+        for(int j=0; j<=m; j++)
+            if(f[j]!=-1)
+                res = max(res, f[j]);
+        
+        return res;
+    }
+};

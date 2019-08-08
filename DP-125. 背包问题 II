@@ -1,0 +1,83 @@
+//125. 背包问题 II
+//把重量放在状态里，价值放在值里
+
+
+//二维DP
+class Solution {
+public:
+    /**
+     * @param m: An integer m denotes the size of a backpack
+     * @param A: Given n items with size A[i]
+     * @param V: Given n items with value V[i]
+     * @return: The maximum value
+     */
+    int backPackII(int m, vector<int> &A, vector<int> &V) {
+        // write your code here
+        int n = A.size();
+        if(n==0) return 0;
+        //f[i][w] ：前i个物品拼出重量为w的最大价值
+        int f[n+1][m+1];   
+        //初始化：0件物品不能拼出大于0的重量
+        fill(f[0], f[0]+(n+1)*(m+1), -1);
+        f[0][0] = 0;   //0个物品拼出重量0，最大总价值为0
+        int res = 0;
+        
+        for(int i=1; i<=n; ++i){
+            for(int j=0; j<=m; ++j){
+                f[i][j] = f[i-1][j];
+                if(j>=A[i-1] && f[i-1][j-A[i-1]]!=-1){
+                    f[i][j] = max(f[i][j], f[i-1][j-A[i-1]]+V[i-1]);
+                }
+                
+            }
+            
+        }
+        
+        for(int j=0; j<=m; j++)
+            if(f[n][j]!=-1)
+                res = max(res, f[n][j]);
+        
+        return res;
+    }
+};
+
+
+//滚动数组
+class Solution {
+public:
+    /**
+     * @param m: An integer m denotes the size of a backpack
+     * @param A: Given n items with size A[i]
+     * @param V: Given n items with value V[i]
+     * @return: The maximum value
+     */
+    int backPackII(int m, vector<int> &A, vector<int> &V) {
+        // write your code here
+        int n = A.size();
+        if(n==0) return 0;
+        int f[m+1];   //一定要把总重量放到背包里面  
+        //初始化：0件物品不能拼出大于0的重量
+        fill(f, f+m+1, -1);
+        f[0] = 0;   //0个物品拼出重量0，最大总价值为0
+        int res = 0;
+        
+        for(int i=1; i<=n; ++i){
+            for(int j=m; j>=0; --j){
+                //update f[j] : f[i][j]
+                //original f[j] : f[i-1][j]
+                if(j>=A[i-1] && f[j-A[i-1]]!=-1){
+                    f[j] = max(f[j], f[j-A[i-1]]+V[i-1]);
+                }
+                
+            }
+            
+        }
+        
+        for(int j=0; j<=m; j++)
+            if(f[j]!=-1)
+                res = max(res, f[j]);
+        
+        return res;
+    }
+};
+

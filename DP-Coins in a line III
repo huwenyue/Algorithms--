@@ -1,0 +1,28 @@
+// 396 Coins in a line III
+给定一个序列values[0], values[1],...., values[n-1],两个玩家轮流取数，每个人每次只能取第一个数或最后一个数，
+双方都用最优策略，使得自己的数字和尽量比对手大，问先手是否必胜（若数字和一样，也算先手胜）
+
+class Solution {
+public:
+    /**
+     * @param values: a vector of integers
+     * @return: a boolean which equals to true if the first player will win
+     */
+    bool firstWillWin(vector<int> &values) {
+        // write your code here
+        int n = values.size();
+        int j;
+        if(n==0)
+            return true;  //长度为0
+        int f[n][n];   //f[i][j]:面对[i,...j]时能得到得最大与对手得数字差
+        for(int i=0; i<n; ++i)
+            f[i][i] = values[i];   //只有一个数字value[i]时，自己得value[i],对方为0
+        for(int len = 2; len<=n; ++len){
+            for(int i=0; i<=n-len; ++i){
+                j = i+len-1;
+                f[i][j] = max(values[i]-f[i+1][j], values[j]-f[i][j-1]);
+            }
+        }
+        return f[0][n-1] >=0 ;
+    }
+};

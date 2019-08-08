@@ -8,10 +8,15 @@
 - [55. 跳跃游戏](https://leetcode.com/problems/jump-game/)
 
 ## 区间型动态规划
-
+- 给定一个序列/字符串，进行一些操作，最后一步会将序列/字符串去头/去尾，剩下的会是一个区间[i,j]， 状态自然定义为f[i][j]，表示面对子序列[i,...j]时的最优性质。
+- 按照长度j-i从小到大的顺序去算
+- leetcode
+- [516. Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/submissions/)
 
 
 ## 序列型动态规划
+- 前i个... 最小/方式数/可行性
+- 序列+状态
 - lintcode
 - [515. 房屋染色](https://www.lintcode.com/problem/paint-house/description) 
 - [516. 房屋染色 II](https://www.lintcode.com/problem/paint-house-ii/description) 
@@ -37,6 +42,8 @@
 
 
 ## 划分型动态规划
+- 给定长度为N的序列或字符串，要求划分成若干段
+- 做法：类似序列型DP，但是通常要加上段数信息；一般用f[i][j]记录前i个元素(0 ~ i-1)分成j段的性质，如最小代价。
 - lintcode
 - [512. 解码方法](https://www.lintcode.com/problem/decode-ways/description) 
 - leetcode
@@ -58,9 +65,17 @@
 ***要把总承重放入状态！***  
 
 - lintcode
-### 存在型 ***
+### 可行型 ***
+- 题面：要求不超过Target时能拼出的最大重量
+- 记录f[i][w]=前i个物品能不能拼出重量w
 - [92. 背包问题](https://www.lintcode.com/problem/backpack/description) 
 ### 计数型 ***
+- 题面：要求有多少种方式拼出重量Target
+- 记录f[i][w]=前i个物品有多少种方式拼出重量w
 - Backpack
 - [564. 组合总和 IV](https://www.lintcode.com/problem/combination-sum-iv/description) 
+### 最值型 ***
+- 题面：要求能拼出的最大价值
+- 记录f[i][w]=前i个/种物品拼出重量w能得到的最大价值
 - [125. 背包问题 II](https://www.lintcode.com/problem/backpack-ii/description) 
+- Backpack III

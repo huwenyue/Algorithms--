@@ -1,0 +1,43 @@
+//10. Regular Expression Matching
+https://leetcode.com/problems/regular-expression-matching/
+
+
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        int m = s.size(), n = p.size();
+        bool f[m+1][n+1];
+        
+        for(int i=0; i<=m; i++){
+            for(int j=0; j<=n; j++){
+                if(i==0 && j==0){
+                    f[i][j] = true;
+                    continue;
+                }
+                if(j==0){
+                    //串不为空，正则表达式为空
+                    f[i][j] = false;
+                    continue;  
+                }
+                //f[i][j] = f[i-1][j-1] when p[j-1]=='.' or s[i-1]==p[j-1]
+                //when p[i-1]=='*'
+                //f[i][j] = f[i][j-2]  把p的后两个字符当作空
+                //f[i][j] = f[i-1][j] and (p[j-2]=='.' or p[j-2]==s[i-1])
+                f[i][j] = false;
+                if(p[j-1]!='*'){
+                    if(i>0 && (p[j-1]=='.' || s[i-1]==p[j-1]) )
+                        f[i][j] = f[i-1][j-1];
+                }
+ 
+                else{
+                    //p[j-1]=='*'
+                    if(j>=2)
+                        f[i][j] |= f[i][j-2];   //把p的最后两个字符当作空字符
+                    if(i>=1 && j>=2 && (p[j-2]=='.' || s[i-1] == p[j-2]) )
+                        f[i][j] |= f[i-1][j] ;
+                }
+            }
+        }
+        return f[m][n];
+    }
+};

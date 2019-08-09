@@ -52,10 +52,19 @@
 - [132. Palindrome Partitioning II](https://leetcode.com/problems/palindrome-partitioning-ii/submissions/)
 - [437. 书籍复印](https://www.lintcode.com/problem/copy-books/description)
 
+
+## 双序列型动态规划
+***有两个序列，每个是一维的，用二维DP来做*** 
+- lintcode
+- [664. 数1](https://www.lintcode.com/problem/counting-bits/description) 
+- [664. 数1](https://www.lintcode.com/problem/counting-bits/description)
+ 1143. Longest Common Subsequence
+
 ## 序列+位操作型动态规划
 - lintcode
 - [664. 数1](https://www.lintcode.com/problem/counting-bits/description) 
- 
+
+
 
 ## 博弈型动态规划
 - lintcode

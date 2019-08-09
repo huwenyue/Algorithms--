@@ -57,8 +57,10 @@
 ***有两个序列，每个是一维的，用二维DP来做*** 
 - lintcode
 - [664. 数1](https://www.lintcode.com/problem/counting-bits/description) 
-- [664. 数1](https://www.lintcode.com/problem/counting-bits/description)
- 1143. Longest Common Subsequence
+- [1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
+- [97. Interleaving String](https://leetcode.com/problems/interleaving-string/)
+
+
 
 ## 序列+位操作型动态规划
 - lintcode

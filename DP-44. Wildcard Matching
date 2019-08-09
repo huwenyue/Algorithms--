@@ -1,0 +1,36 @@
+//44. Wildcard Matching
+https://leetcode.com/problems/wildcard-matching/
+
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        int m = s.size(), n = p.size();
+        int f[m+1][n+1];
+        
+        for(int i=0; i<=m; i++){
+            for(int j=0; j<=n; j++){
+                if(i==0 && j==0){
+                    f[i][j] = true;
+                    continue;
+                }
+                //i>0
+                if(j==0){
+                    f[i][j] = false;
+                    continue;
+                }
+                f[i][j] = false;   //初始化
+                
+                if(p[j-1]!='*'){
+                    if(i>0 && (p[j-1]=='?' || p[j-1] == s[i-1]))
+                        f[i][j] = f[i-1][j-1];
+                }
+                else{
+                    f[i][j] = f[i][j-1];  //把p的最后一个字符*当作空
+                    if(i>0)
+                        f[i][j] |= f[i-1][j];   //*匹配上了s的最后一个字符
+                }
+            }
+        }
+        return f[m][n];
+    }
+};

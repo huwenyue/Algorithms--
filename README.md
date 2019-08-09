@@ -60,6 +60,7 @@
 - [1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
 - [97. Interleaving String](https://leetcode.com/problems/interleaving-string/)
 - [72. Edit Distance](https://leetcode.com/problems/edit-distance/submissions/)
+- [115. Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/)
 
 
 ## 序列+位操作型动态规划

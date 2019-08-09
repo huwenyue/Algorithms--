@@ -1,0 +1,93 @@
+https://leetcode.com/problems/ones-and-zeroes/submissions/
+// 474. Ones and Zeroes
+
+
+//三维DP
+class Solution {
+public:
+    int findMaxForm(vector<string>& strs, int m, int n) {
+        int t = strs.size();
+        int cnt0[t];   //记录字符串0的个数
+        int cnt1[t];   //记录字符串1的个数
+        
+        for(int i=0; i<t; i++){
+            cnt0[i] = cnt1[i] = 0;
+            string s = strs[i];
+            for(int j=0; j<s.size(); j++){
+                if(s[j] == '0')
+                    cnt0[i]++;
+                else
+                    cnt1[i]++;
+            }
+        }
+        
+        int f[t+1][m+1][n+1];  //前t+1个，m个0，n个1
+        
+        fill( (int*)f, (int*)f+(t+1)*(m+1)*(n+1), 0);  
+        //初始化：f[0][j][k] = 0;
+        
+        
+        for(int i=1; i<=t; i++){
+            for(int j=0; j<=m; j++){
+                for(int k=0; k<=n; k++){
+                    //strs[i-1] not selected
+                    f[i][j][k] = f[i-1][j][k];
+                    // strs[i-1] selected
+                    if(j>=cnt0[i-1] && k>=cnt1[i-1])
+                        f[i][j][k] = max( f[i][j][k], f[i-1][j-cnt0[i-1]][k-cnt1[i-1]]+1 );
+                }
+            }
+        }
+        
+        return f[t][m][n];
+    }
+};
+
+
+
+//滚动数组优化到O(mn)的空间复杂度
+//old代替i-1； new代替i
+
+class Solution {
+public:
+    int findMaxForm(vector<string>& strs, int m, int n) {
+        int t = strs.size();
+        int cnt0[t];   //记录字符串0的个数
+        int cnt1[t];   //记录字符串1的个数
+        
+        for(int i=0; i<t; i++){
+            cnt0[i] = cnt1[i] = 0;
+            string s = strs[i];
+            for(int j=0; j<s.size(); j++){
+                if(s[j] == '0')
+                    cnt0[i]++;
+                else
+                    cnt1[i]++;
+            }
+        }
+        
+        int f[2][m+1][n+1];  //前t+1个，m个0，n个1
+        int old=0, now = 1;
+        
+        fill( (int*)f, (int*)f+2*(m+1)*(n+1), 0);  
+        //初始化：f[0][j][k] = 0;
+        
+        
+        for(int i=1; i<=t; i++){
+            old = now;
+            now = 1-now;
+            for(int j=0; j<=m; j++){
+                for(int k=0; k<=n; k++){
+                    //strs[i-1] not selected
+                    f[now][j][k] = f[old][j][k];
+                    // strs[i-1] selected
+                    if(j>=cnt0[i-1] && k>=cnt1[i-1])
+                        f[now][j][k] = max( f[now][j][k], f[old][j-cnt0[i-1]][k-cnt1[i-1]]+1 );
+                }
+            }
+        }
+        
+        return f[now][m][n];
+    }
+};
+

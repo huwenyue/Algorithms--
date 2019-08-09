@@ -1,0 +1,33 @@
+https://leetcode.com/problems/distinct-subsequences/
+//115. Distinct Subsequences
+
+
+class Solution {
+public:
+    int numDistinct(string s, string t) {
+        int m = s.size(), n = t.size();
+        long long f[m+1][n+1];   //注意f的数据类型如果是int会超内存
+        
+        for(int i=0; i<=m; i++){
+            for(int j=0; j<=n; j++){
+                if(j==0){
+                    //t是空串
+                    f[i][j] = 1;
+                    //f[0][0] = 1;
+                    continue;
+                }
+                if(i==0){
+                    //t不是空串，s是空串
+                    f[i][j] = 0;
+                    continue;
+                }
+                f[i][j] = f[i-1][j];   //t的最后一个字符不等于s的最后一个字符
+                if(s[i-1] == t[j-1])
+                    f[i][j] += f[i-1][j-1];
+                
+            }
+        }
+        
+        return f[m][n];
+    }
+};

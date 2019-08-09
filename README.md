@@ -27,6 +27,8 @@
 - [149. 买卖股票的最佳时机](https://www.lintcode.com/problem/best-time-to-buy-and-sell-stock/description)
 - [150. 买卖股票的最佳时机 II](https://www.lintcode.com/problem/best-time-to-buy-and-sell-stock-ii/description)
 - [151. 买卖股票的最佳时机 III](https://www.lintcode.com/problem/best-time-to-buy-and-sell-stock-iii/description)
+- [474. Ones and Zeroes](https://leetcode.com/problems/ones-and-zeroes/submissions/)
+
 
 
 ### 最长序列型动态规划（坐标型）

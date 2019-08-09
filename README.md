@@ -61,6 +61,9 @@
 - [97. Interleaving String](https://leetcode.com/problems/interleaving-string/)
 - [72. Edit Distance](https://leetcode.com/problems/edit-distance/submissions/)
 - [115. Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/)
+- [10. Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/submissions/)
+- [44. Wildcard Matching](https://leetcode.com/problems/wildcard-matching/)
+
 
 
 ## 序列+位操作型动态规划

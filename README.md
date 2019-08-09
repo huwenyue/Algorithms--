@@ -59,7 +59,7 @@
 - [664. 数1](https://www.lintcode.com/problem/counting-bits/description) 
 - [1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
 - [97. Interleaving String](https://leetcode.com/problems/interleaving-string/)
-
+- [72. Edit Distance](https://leetcode.com/problems/edit-distance/submissions/)
 
 
 ## 序列+位操作型动态规划

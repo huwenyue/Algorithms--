@@ -25,3 +25,47 @@ public:
         return res;
     }
 };
+
+
+//二分查找来优化
+//O(nlogn)
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        //同一个f值，只用存最小的nums[i]
+        //存下来的nums[i]是从小到大的
+        int n = nums.size();
+        if(n==0)
+            return 0;
+        //int f[n];  //0 ~ n-1
+        int b[n+1];   //b[i]: when f value is i, smallest nums value(ending value)
+        int top = 0;
+        b[0] = INT_MIN;
+        
+        //O(n)
+        for(int i=0; i<n; i++){
+            //二分 b[0] ~ b[top] find last value b[j] is smaller than nums[i]
+            int start = 0, stop = top;
+            int mid, j;
+            //O(logn)
+            while(start <= stop){
+                mid = (start + stop)/2;
+                if(b[mid] < nums[i]){
+                    j = mid;
+                    start = mid + 1;
+                }
+                else{
+                    stop = mid-1;
+                }
+            }
+            b[j+1] = nums[i];  // f[i] = j+1
+            if(j+1 > top)
+                top = j+1;
+        }
+        //b[0]...b[top]
+        //b[top] stores the smallest ending value for an increasing sequence with length top
+        
+        return top;
+    }
+    
+};

@@ -99,5 +99,5 @@
 ## 融合型动态规划（更难）
 - lintcode
 - [91. Minimum Adjustment Cost](https://www.lintcode.com/problem/minimum-adjustment-cost/description) 
-- [89. k Sum](https://www.lintcode.com/problem/k-sum/description) 
+- [89. k Sum](https://www.lintcode.com/problem/k-sum/description) 背包问题
 

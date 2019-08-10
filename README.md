@@ -7,6 +7,7 @@
 - leetcode
 - [55. 跳跃游戏](https://leetcode.com/problems/jump-game/)
 
+
 ## 区间型动态规划
 - 给定一个序列/字符串，进行一些操作，最后一步会将序列/字符串去头/去尾，剩下的会是一个区间[i,j]， 状态自然定义为f[i][j]，表示面对子序列[i,...j]时的最优性质。
 - 按照长度j-i从小到大的顺序去算
@@ -14,6 +15,7 @@
 - [516. Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/submissions/)
 - Coins in a line III
 - [312. Burst Balloons](https://leetcode.com/problems/burst-balloons/)
+
 
 ## 序列型动态规划
 - 前i个... 最小/方式数/可行性
@@ -30,7 +32,6 @@
 - [474. Ones and Zeroes](https://leetcode.com/problems/ones-and-zeroes/submissions/)
 
 
-
 ### 最长序列型动态规划（坐标型）
 ***要求找出符合条件的最长子序列*** 
 
@@ -41,7 +42,6 @@
 - [300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/submissions/)
 - lintcode
 - [397. 最长上升连续子序列](https://www.lintcode.com/problem/longest-continuous-increasing-subsequence/my-submissions)
-
 
 
 ## 划分型动态规划
@@ -67,11 +67,9 @@
 - [44. Wildcard Matching](https://leetcode.com/problems/wildcard-matching/)
 
 
-
 ## 序列+位操作型动态规划
 - lintcode
 - [664. 数1](https://www.lintcode.com/problem/counting-bits/description) 
-
 
 
 ## 博弈型动态规划
@@ -81,7 +79,6 @@
 
 ## 背包型动态规划
 ***要把总承重放入状态！***  
-
 - lintcode
 ### 可行型 ***
 - 题面：要求不超过Target时能拼出的最大重量
@@ -97,3 +94,8 @@
 - 记录f[i][w]=前i个/种物品拼出重量w能得到的最大价值
 - [125. 背包问题 II](https://www.lintcode.com/problem/backpack-ii/description) 
 - Backpack III
+
+
+## 融合型动态规划（更难）
+- lintcode
+- [91. Minimum Adjustment Cost](https://www.lintcode.com/problem/minimum-adjustment-cost/description) 
